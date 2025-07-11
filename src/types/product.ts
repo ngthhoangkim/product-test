@@ -33,7 +33,7 @@ export interface CreateProductRequest {
     unitPrice: number;
     barcode: string;
   }[];
-  taxes: any[];
+  taxes: string[]; 
 }
 
 export interface UpdateProductRequest extends CreateProductRequest {
