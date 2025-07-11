@@ -13,9 +13,11 @@ import {
 } from "@/types/product";
 
 // Cấu hình cơ bản từ environment variables
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "/api" // Sử dụng proxy path trong production
+    : process.env.NEXT_PUBLIC_API_BASE_URL; // Sử dụng direct URL trong development
 const STORE_ID = process.env.NEXT_PUBLIC_STORE_ID;
-
 
 // Tạo Axios instance
 export const apiClient = axios.create({
